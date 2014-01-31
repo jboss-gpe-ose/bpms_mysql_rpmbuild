@@ -6,27 +6,26 @@ Group:          Red Hat JBoss
 License:        GPLv3+
 URL:            http://www.redhat.com
 Source0:        module.xml
-Source1:        persistence.xml
 Requires:       bpms, mysql-server, mysql-connector-java
 
 %description
 Provides configuration required for Red Hat JBoss to connect to an existing MySQL RDBMS.
-In particular, will add a mysql "module" to the module path of JBoss EAP and re-configure
-the Business Central and Dashbuilder web archives of BPMS6 to us mysql.
+In particular, will add a mysql "module" to the module path of JBoss EAP.
+
 
 %install
+INTEGRATION_HOME=/opt/jboss_bpm_soa
+JBOSS_HOME=$RPM_BUILD_ROOT/$INTEGRATION_HOME/jboss-eap-6.1
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/opt/jboss_bpm_soa/jboss-eap-6.1/modules/system/layers/bpms/com/mysql/jdbc/main
-cp %{SOURCE0} $RPM_BUILD_ROOT/opt/jboss_bpm_soa/jboss-eap-6.1/modules/system/layers/bpms/com/mysql/jdbc/main
-
-mkdir -p $RPM_BUILD_ROOT/opt/jboss_bpm_soa/jboss-eap-6.1/standalone/deployments/business-central.war/WEB-INF/classes/META-INF
-cp %{SOURCE1} $RPM_BUILD_ROOT/opt/jboss_bpm_soa/jboss-eap-6.1/standalone/deployments/business-central.war/WEB-INF/classes/META-INF/
+mkdir -p $JBOSS_HOME/modules/system/layers/bpms/com/mysql/jdbc/main
+cp %{SOURCE0} $JBOSS_HOME/modules/system/layers/bpms/com/mysql/jdbc/main
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-ln -s -f -t /opt/jboss_bpm_soa/jboss-eap-6.1/modules/system/layers/bpms/com/mysql/jdbc/main/ /usr/share/java/mysql-connector-java.jar
+MYSQL_CONNECTOR_PATH=/usr/share/java/mysql-connector-java.jar
+ln -s -f -t /opt/jboss_bpm_soa/jboss-eap-6.1/modules/system/layers/bpms/com/mysql/jdbc/main/ $MYSQL_CONNECTOR_PATH
 
 %pre-uninstall
 rm /opt/jboss_bpm_soa/jboss-eap-6.1/modules/system/layers/bpms/com/mysql/jdbc/main/mysql-connector-java.jar

@@ -7,10 +7,7 @@ Build Procedure
   - cd /path/to/this/bpms_mysql_rpmbuild
   - rpmbuild --define "_sourcedir `pwd`/SOURCES" -ba SPECS/bpms_mysql.spec
   - rpm -qlp ~/rpmbuild/RPMS/x86_64/bpms_mysql-6.0.0-1.el6.x86_64.rpm
-  - sudo rpm -ivh --replacefiles ~/rpmbuild/RPMS/x86_64/bpms_mysql-6.0.0-1.el6.x86_64.rpm
-    - NOTE:  
-        - BPMS_MYSQL intentionally over-rides several configuration files from JBoss BPMS6
-        - writing over these files is safe and can be done with RPM via "--replacefiles" flag
+  - sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/bpms_mysql-6.0.0-1.el6.x86_64.rpm
     
   - sudo rpm -e bpms_mysql
 

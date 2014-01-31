@@ -24,10 +24,9 @@ cp %{SOURCE0} $JBOSS_HOME/modules/system/layers/bpms/com/mysql/jdbc/main
 rm -rf $RPM_BUILD_ROOT
 
 %post
-MYSQL_CONNECTOR_PATH=/usr/share/java/mysql-connector-java.jar
-ln -s -f -t /opt/jboss_bpm_soa/jboss-eap-6.1/modules/system/layers/bpms/com/mysql/jdbc/main/ $MYSQL_CONNECTOR_PATH
+ln -s -f -t /opt/jboss_bpm_soa/jboss-eap-6.1/modules/system/layers/bpms/com/mysql/jdbc/main/ /usr/share/java/mysql-connector-java.jar
 
-%pre-uninstall
+%preun
 rm /opt/jboss_bpm_soa/jboss-eap-6.1/modules/system/layers/bpms/com/mysql/jdbc/main/mysql-connector-java.jar
 
 %files

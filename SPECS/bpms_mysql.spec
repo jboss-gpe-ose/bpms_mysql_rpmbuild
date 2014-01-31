@@ -18,6 +18,8 @@ the Business Central and Dashbuilder web archives of BPMS6 to us mysql.
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/opt/jboss_bpm_soa/jboss-eap-6.1/modules/system/layers/bpms/com/mysql/jdbc/main
 cp %{SOURCE0} $RPM_BUILD_ROOT/opt/jboss_bpm_soa/jboss-eap-6.1/modules/system/layers/bpms/com/mysql/jdbc/main
+
+mkdir -p $RPM_BUILD_ROOT/opt/jboss_bpm_soa/jboss-eap-6.1/standalone/deployments/business-central.war/WEB-INF/classes/META-INF
 cp %{SOURCE1} $RPM_BUILD_ROOT/opt/jboss_bpm_soa/jboss-eap-6.1/standalone/deployments/business-central.war/WEB-INF/classes/META-INF/
 
 %clean

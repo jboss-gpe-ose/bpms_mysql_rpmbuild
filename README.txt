@@ -1,5 +1,9 @@
 Purpose
-  - package management of configurations needs by JBoss BPMSv6 to leverage mysql/mariadb on Red Hat Enterprise Linux (RHEL) 
+  - package management of configurations needs by JBoss BPMSv6 and FSW to leverage mysql/mariadb on Red Hat Enterprise Linux (RHEL), in particular:
+  1)  mysql jdbc driver library
+  2)  persistence.xml for BPMS6 business-central web archive
+ 
+
 
 Build Procedure
   - ensure that jboss_bpm_soa, bpms, mysql-server and mysql-connector-java RPMs are available (and installed if not using yum)

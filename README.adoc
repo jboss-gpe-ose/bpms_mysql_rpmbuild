@@ -1,0 +1,20 @@
+== Purpose
+* package management of configurations needed by JBoss BPMS6 and FSW to leverage mysql on Red Hat Enterprise Linux (RHEL)
+* in particular, this RPM creates a JBoss Module called: com.mysql.jdbc
+* this module is leveraged by both the BPMS6 and FSW cartridges
+ 
+
+
+== Build Procedure
+* NOTE:  built RPMs of this and related projects can be found link:http://people.redhat.com/jbride/ose/INSTALL.txt[here]
+* If you are still interested in leveraging this project to build your own RPMs, then the following applies:
+. ensure that jboss_bpm_soa, bpms, mysql-server and mysql-connector-java RPMs are available (and installed if not using yum)
+. clone this project from github
+. cd /path/to/this/bpms_mysql_rpmbuild
+. rpmbuild --define "_sourcedir `pwd`/SOURCES" -ba SPECS/bpms_mysql.spec
+. rpm -qlp ~/rpmbuild/RPMS/x86_64/bpms_mysql-6.0.0-1.el6.x86_64.rpm
+. sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/bpms_mysql-6.0.0-1.el6.x86_64.rpm
+    
+. sudo rpm -e bpms_mysql
+
+ TO-DO

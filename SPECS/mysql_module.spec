@@ -1,12 +1,12 @@
 Name:           mysql_module
 Version:        6.0.0
-Release:        1%{?dist}
+Release:        3%{?dist}
 Summary:        JBoss Business Process Management System (BPMS) Deployable for JBoss EAP 6
 Group:          Red Hat JBoss
 License:        GPLv3+
 URL:            http://www.redhat.com
 Source0:        module.xml
-Requires:       bpms, mysql-server, mysql-connector-java
+Requires:       mysql-server, mysql-connector-java
 
 %description
 Provides configuration required for Red Hat JBoss to connect to an existing MySQL RDBMS.

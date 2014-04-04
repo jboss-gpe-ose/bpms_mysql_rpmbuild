@@ -12,8 +12,8 @@
 . clone this project from github
 . cd /path/to/this/mysql_module_rpmbuild
 . rpmbuild --define "_sourcedir `pwd`/SOURCES" -ba SPECS/mysql_module.spec
-. rpm -qlp ~/rpmbuild/RPMS/x86_64/mysql_module-6.0.0-1.el6.x86_64.rpm
-. sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/mysql_module-6.0.0-1.el6.x86_64.rpm
+. rpm -qlp ~/rpmbuild/RPMS/x86_64/mysql_module-6.0.0-3.el6.x86_64.rpm
+. sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/mysql_module-6.0.0-3.el6.x86_64.rpm
     
 . sudo rpm -e mysql_module
 
